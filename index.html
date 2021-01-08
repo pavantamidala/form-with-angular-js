@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"
+        integrity="sha512-7oYXeK0OxTFxndh0erL8FsjGvrl2VMDor6fVqzlLGfwOQQqTbYsGPv4ZZ15QHfSk80doyaM0ZJdvkyDcVO7KFA=="
+        crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        small {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body ng-controller="FormController">
+
+    <div>
+        <form name="myform" novalidate class="container">
+            First Name: <input type="text" name="firstname" ng-model="firstName" ng-minlength="3" ng-maxlength="25"
+                required><br>
+            <div ng-show="myform.firstname.$touched && myform.firstname.$invalid">
+                <small>FirstName must be greater than 3 and less than 25 characters</small>
+            </div>
+            Last Name: <input type="text" name="lastname" ng-model="lastName" ng-minlength="3" ng-maxlength="25"
+                required><br>
+            <div ng-show="myform.lastname.$touched && myform.lastname.$invalid">
+                <small>FirstName must be greater than 3 and less than 25 characters</small>
+            </div>
+
+            Date : <input type="date" id="exampleInput" name="date" ng-model="date" required />
+            <div ng-show="myform.date.$touched && myform.date.$invalid">
+                <small>date required</small>
+            </div><br>
+            Mobile No: <input type="number" name="phonenumber" ng-model="mobile"  ng-maxlength="10"
+                required><br>
+            <div ng-show="myform.phonenumber.$touched && myform.phonenumber.$invalid">
+                <small>number must be 10 characters</small>
+            </div>
+            Email : <input type="email" name="email" ng-model="email" required> <br>
+            <button ng-click="objectCreation($event)">Submit</button>
+            
+        </form>
+
+    </div>
+    <div >
+        <div ng-repeat="x in bigArray" class="content" data-id="{{x.id}}">
+            <h4>{{x.firstName}}</h4>
+            <h4>{{x.lastName}}</h4>
+            <h4>{{x.date }}</h4>
+            <h4>{{x.mobile}}</h4>
+            <h4>{{x.email}}</h4>
+            <button ng-click="editFunc($event)" class="edit" data-address="{{x.id}}">Edit</button>
+            <button ng-click="deleteFunc($event)" class="delete" data-address="{{x.id}}">Delete</button>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
