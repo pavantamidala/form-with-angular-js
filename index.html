@@ -24,27 +24,26 @@
 
     <div>
         <form name="myform" novalidate class="container">
-            First Name: <input type="text" name="firstname" ng-model="firstName" ng-minlength="3" ng-maxlength="25"
+            First Name: <input type="text" name="firstname" ng-model="firstName" ng-required="true" ng-minlength="3" ng-maxlength="25"
                 required><br>
             <div ng-show="myform.firstname.$touched && myform.firstname.$invalid">
                 <small>FirstName must be greater than 3 and less than 25 characters</small>
             </div>
-            Last Name: <input type="text" name="lastname" ng-model="lastName" ng-minlength="3" ng-maxlength="25"
-                required><br>
+            Last Name: <input type="text" name="lastname" ng-model="lastName" ng-minlength="3" ng-required="true" ng-maxlength="25"><br>
             <div ng-show="myform.lastname.$touched && myform.lastname.$invalid">
                 <small>FirstName must be greater than 3 and less than 25 characters</small>
             </div>
 
-            Date : <input type="date" id="exampleInput" name="date" ng-model="date" required />
+            Date : <input type="date" id="exampleInput" name="date" ng-model="date" ng-required="true" />
             <div ng-show="myform.date.$touched && myform.date.$invalid">
                 <small>date required</small>
             </div><br>
             Mobile No: <input type="number" name="phonenumber" ng-model="mobile"  ng-maxlength="10"
-                required><br>
+                ng-required="true"><br>
             <div ng-show="myform.phonenumber.$touched && myform.phonenumber.$invalid">
                 <small>number must be 10 characters</small>
             </div>
-            Email : <input type="email" name="email" ng-model="email" required> <br>
+            Email : <input type="email" name="email" ng-model="email" ng-required="true"> <br>
             <button ng-click="objectCreation($event)">Submit</button>
             
         </form>
