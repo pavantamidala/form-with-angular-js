@@ -23,7 +23,7 @@
 <body ng-controller="FormController">
 
     <div>
-        <form name="myform" novalidate class="container">
+        <form name="myform"  class="container">
             First Name: <input type="text" name="firstname" ng-model="firstName" ng-required="true" ng-minlength="3" ng-maxlength="25"
                 required><br>
             <div ng-show="myform.firstname.$touched && myform.firstname.$invalid">
